@@ -28,8 +28,13 @@
 *.out
 *.app
 
-.vs/
-.filters
-.txt
-.db
-.opendb
+/.vs/
+*.filters
+*.txt
+*.db
+*.opendb
+*.ilk
+*.pdb
+*.user
+/*/Debug
+/*/Release

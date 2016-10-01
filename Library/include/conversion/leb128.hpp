@@ -30,9 +30,9 @@ extern "C" {
 /* Get a definition for NULL, size_t.  */
 #include <stddef.h>
 
-#ifdef HAVE_STDINT_H
+//#ifdef HAVE_STDINT_H
 #include <stdint.h>
-#endif
+//#endif
 #ifdef HAVE_INTTYPES_H
 #include <inttypes.h>
 #endif

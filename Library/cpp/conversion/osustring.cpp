@@ -1,7 +1,6 @@
 #include "conversion/leb128.hpp"
 #include "conversion/osustring.hpp"
 #include <cassert>
-#include <cstdint>
 
 std::string osustring_to_stdstring(unsigned char * buffer, unsigned char* end)
 {

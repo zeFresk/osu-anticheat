@@ -1,3 +1,4 @@
+#pragma warning(push, 0)
 /*
  *  Catch v1.5.7
  *  Generated: 2016-09-27 10:45:46.824849
@@ -10522,3 +10523,4 @@ using Catch::Detail::Approx;
 
 #endif // TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED
 
+#pragma warning(pop)
