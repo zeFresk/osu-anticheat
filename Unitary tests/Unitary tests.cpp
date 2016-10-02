@@ -4,6 +4,7 @@
 */
 
 #include <fstream>
+#include <sstream>
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "orde_headers.hpp"
@@ -32,6 +33,18 @@ SCENARIO("OSRE can read custom types used in replay files", "[types]")
 			}
 		}
 	}
+	GIVEN("some ULEB128 from istream")
+	{
+		std::vector<char> raw = { 0x07, 0x7A, 0x65, 0x46, 0x72, 0x65, 0x73, 0x6B };
+		std::string str{ std::begin(raw), std::end(raw) };
+		std::stringstream sstream{ str };
+		raw.clear();
+		REQUIRE(sstream.str() == "\azeFresk");
+		THEN("ULEB128 is successfully read.")
+		{
+			REQUIRE(uleb128_from_istream(sstream) == 7);
+		}
+	}
 	GIVEN("some osu String")
 	{
 		unsigned char str[] = { 0x0B,0x07,0x7A,0x65,0x46,0x72,0x65,0x73,0x6B };
@@ -45,17 +58,17 @@ SCENARIO("OSRE can read custom types used in replay files", "[types]")
 			}
 		}
 	}
-}/*
+}
 SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]")
 {
 	GIVEN("a replay file")
 	{
-		OsrFile const file;
+		orde::OsrFile file;
 
 		WHEN("the file is loaded")
 		{
-			std::ifstream filestream("Tests files/Granat.hpp", std::ios::binary);
-			file = make_osr(filestream);
+			std::ifstream filestream("Tests files/Granat.osr", std::ios::binary);
+			file = orde::make_osr(filestream);
 
 			THEN("gamemode is correctly read")
 			{
@@ -95,7 +108,7 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 			THEN("number of katus is correctly read")
 			{
-				REQUIRE(file.katus == 39);
+				REQUIRE(file.katus == 5);
 			}
 			THEN("number of misses is correctly read")
 			{
@@ -119,7 +132,7 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 			THEN("lifebar graph is correctly read")
 			{
-				REQUIRE(file.lifebar_graph == "449|1,2769|1,4937|1,7078|1,9399|1,11553|1,13878|1,15883|1,18010|1,20011|1,22136|0.97,24139|1,26478|0.99,28627|1,30952|1,33437|1,35440|1,37444|0.97,39577|0.62,41732|0.66,42099|0.69");
+				REQUIRE(file.lifebar_graph.size() == 21);
 			}
 			THEN("timestamp is correctly read")
 			{
@@ -127,7 +140,7 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 			THEN("compressed data length isn't null")
 			{
-				REQUIRE(file.length_compressed_data != 0);
+				REQUIRE(file.compressed_data_length != 0);
 			}
 			THEN("data replay isn't empty")
 			{
@@ -135,5 +148,5 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 		}
 	}
-}*/
+}
 

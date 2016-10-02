@@ -8,6 +8,7 @@
 
 #include "leb128.hpp"
 #include "osustring.hpp"
+#include "uleb128.hpp"
 
 
 inline uint64_t uleb128_to_uint64_t(unsigned char* uleb)

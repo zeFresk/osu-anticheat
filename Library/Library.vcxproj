@@ -160,10 +160,20 @@
     <ClInclude Include="include\conversion\conversion.hpp" />
     <ClInclude Include="include\conversion\leb128.hpp" />
     <ClInclude Include="include\conversion\osustring.hpp" />
+    <ClInclude Include="include\conversion\uleb128.hpp" />
+    <ClInclude Include="include\extraction\action.hpp" />
+    <ClInclude Include="include\extraction\enums.hpp" />
+    <ClInclude Include="include\extraction\extraction.hpp" />
+    <ClInclude Include="include\extraction\osrfile.hpp" />
+    <ClInclude Include="include\extraction\types.hpp" />
+    <ClInclude Include="include\extraction\unserialize.hpp" />
     <ClInclude Include="orde.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp\conversion\osustring.cpp" />
+    <ClCompile Include="cpp\conversion\uleb128.cpp" />
+    <ClCompile Include="cpp\extraction\extraction.cpp" />
+    <ClCompile Include="cpp\extraction\unserialize.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
