@@ -4,11 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Library", "Library\Library.vcxproj", "{5F170A61-47EF-4B35-AE94-C6D6B76A7A59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5} = {8283ED40-CFA0-4637-A875-F5BE8152AFE5}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Unitary tests", "Unitary tests\Unitary tests.vcxproj", "{388C2592-883B-4320-B157-B7B81E54F9F8}"
 	ProjectSection(ProjectDependencies) = postProject
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5} = {8283ED40-CFA0-4637-A875-F5BE8152AFE5}
 		{5F170A61-47EF-4B35-AE94-C6D6B76A7A59} = {5F170A61-47EF-4B35-AE94-C6D6B76A7A59}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LZMA", "LZMA\LZMA.vcxproj", "{8283ED40-CFA0-4637-A875-F5BE8152AFE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +40,14 @@ Global
 		{388C2592-883B-4320-B157-B7B81E54F9F8}.Release|x64.Build.0 = Release|x64
 		{388C2592-883B-4320-B157-B7B81E54F9F8}.Release|x86.ActiveCfg = Release|Win32
 		{388C2592-883B-4320-B157-B7B81E54F9F8}.Release|x86.Build.0 = Release|Win32
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Debug|x64.ActiveCfg = Debug|x64
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Debug|x64.Build.0 = Debug|x64
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Debug|x86.ActiveCfg = Debug|Win32
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Debug|x86.Build.0 = Debug|Win32
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Release|x64.ActiveCfg = Release|x64
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Release|x64.Build.0 = Release|x64
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Release|x86.ActiveCfg = Release|Win32
+		{8283ED40-CFA0-4637-A875-F5BE8152AFE5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

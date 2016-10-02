@@ -1,11 +1,13 @@
 #include <sstream>
 #include <string>
-#include <istream>
+#include <fstream>
 #include <cassert>
 #include <vector>
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/lexical_cast.hpp>
+
+#include "../../../LZMA/include/decompress.hpp"
 
 #include "conversion/osustring.hpp"
 #include "conversion/uleb128.hpp"
@@ -41,9 +43,30 @@ namespace orde {
 	{
 		assert(size != 0 && "actions are empty");
 
-		actions.reserve(size);
+		std::vector<char> inBuf(size);
+		stream.read(inBuf.data(), size);
 
+		std::vector<char> outBuf;
+		lzma_decompress(outBuf, inBuf);
 
+		std::string uncompressed_string(outBuf.begin(), outBuf.end()); //Peppy why u do dis ? Why a string ???
+
+		std::vector<std::string> results;
+		boost::split(results, uncompressed_string, [](char car) {return car == ','; });
+		results.resize(results.size() - 1); //don't ask me why, the last one is empty
+		actions.reserve(results.size());
+
+		for (auto& a : results)
+		{
+			std::vector<std::string> wxyz;
+			boost::split(wxyz, a, [](char car) {return car == '|'; });
+			actions.push_back({ boost::lexical_cast<Action::w_t>(std::move(wxyz[0])), boost::lexical_cast<Action::x_t>(std::move(wxyz[1])), boost::lexical_cast<Action::y_t>(std::move(wxyz[2])), boost::lexical_cast<Action::z_t>(std::move(wxyz[3])) });
+		}
+	}
+
+	template<>
+	void unserialize(std::istream & stream, Action & act)
+	{
 	}
 
 	template <>

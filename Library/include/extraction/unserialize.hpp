@@ -24,6 +24,9 @@ namespace orde {
 	void unserialize(std::istream& stream, Actions& actions, Integer size);
 
 	template <>
+	void unserialize<Action>(std::istream& stream, Action& act);
+
+	template <>
 	void unserialize<Graph>(std::istream& stream, Graph& graph);
 
 }

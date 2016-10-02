@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5F170A61-47EF-4B35-AE94-C6D6B76A7A59}</ProjectGuid>
+    <ProjectGuid>{8283ED40-CFA0-4637-A875-F5BE8152AFE5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Library</RootNamespace>
+    <RootNamespace>LZMA</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -69,21 +69,17 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Library\include;$(IncludePath)</IncludePath>
-    <TargetName>orde</TargetName>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Library\include;$(IncludePath)</IncludePath>
-    <TargetName>orde</TargetName>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Library\include;$(IncludePath)</IncludePath>
-    <TargetName>orde</TargetName>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Library\include;$(IncludePath)</IncludePath>
-    <TargetName>orde</TargetName>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,11 +92,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
-    <Lib>
-      <Verbose>true</Verbose>
-      <AdditionalDependencies>LZMA.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -113,11 +104,6 @@
     <Link>
       <SubSystem>Windows</SubSystem>
     </Link>
-    <Lib>
-      <Verbose>true</Verbose>
-      <AdditionalDependencies>LZMA.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -134,10 +120,6 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <Verbose>true</Verbose>
-      <AdditionalDependencies>LZMA.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -154,32 +136,33 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <Lib>
-      <Verbose>true</Verbose>
-      <AdditionalDependencies>LZMA.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\conversion\conversion.hpp" />
-    <ClInclude Include="include\conversion\leb128.hpp" />
-    <ClInclude Include="include\conversion\osustring.hpp" />
-    <ClInclude Include="include\conversion\uleb128.hpp" />
-    <ClInclude Include="include\extraction\action.hpp" />
-    <ClInclude Include="include\extraction\enums.hpp" />
-    <ClInclude Include="include\extraction\extraction.hpp" />
-    <ClInclude Include="include\extraction\osrfile.hpp" />
-    <ClInclude Include="include\extraction\types.hpp" />
-    <ClInclude Include="include\extraction\unserialize.hpp" />
-    <ClInclude Include="orde.hpp" />
+    <ClCompile Include="src\decompress.cpp" />
+    <ClCompile Include="src\LzmaCompress.c" />
+    <ClCompile Include="src\LzmaDecompress.c" />
+    <ClCompile Include="src\SDK\C\Bra86.c" />
+    <ClCompile Include="src\SDK\C\LzFind.c" />
+    <ClCompile Include="src\SDK\C\LzmaDec.c" />
+    <ClCompile Include="src\SDK\C\LzmaEnc.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\conversion\osustring.cpp" />
-    <ClCompile Include="src\conversion\uleb128.cpp" />
-    <ClCompile Include="src\extraction\extraction.cpp" />
-    <ClCompile Include="src\extraction\unserialize.cpp" />
+    <ClInclude Include="include\basetypes.h" />
+    <ClInclude Include="include\decompress.hpp" />
+    <ClInclude Include="include\LzmaCompress.h" />
+    <ClInclude Include="include\LzmaDecompress.h" />
+    <ClInclude Include="include\SDK\C\7zVersion.h" />
+    <ClInclude Include="include\SDK\C\Bra.h" />
+    <ClInclude Include="include\SDK\C\CpuArch.h" />
+    <ClInclude Include="include\SDK\C\LzFind.h" />
+    <ClInclude Include="include\SDK\C\LzHash.h" />
+    <ClInclude Include="include\SDK\C\LzmaDec.h" />
+    <ClInclude Include="include\SDK\C\LzmaEnc.h" />
+    <ClInclude Include="include\SDK\C\Types.h" />
+    <ClInclude Include="include\UefiLzma.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
