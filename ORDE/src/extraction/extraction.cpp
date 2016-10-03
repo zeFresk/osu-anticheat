@@ -6,16 +6,15 @@
 
 namespace orde {
 
-	OsrFile make_osr(std::ifstream & stream)
+	OsrFile make_osr(std::istream & stream)
 	{
-		assert(stream.is_open() && "couldn't open replay file");
+		assert(stream && "couldn't open replay file");
 		
 		OsrFile ret;
 		unserialize(stream, *reinterpret_cast<uint8_t*>(&ret.gamemode));
 		unserialize(stream, ret.osu_version);
 		unserialize(stream, ret.beatmap_hash);
 		unserialize(stream, ret.player_name);
-		ret.player_name.resize(ret.player_name.size() - 1); // ?????
 		unserialize(stream, ret.replay_hash);
 		unserialize(stream, ret.three_hundreds);
 		unserialize(stream, ret.one_hundreds);

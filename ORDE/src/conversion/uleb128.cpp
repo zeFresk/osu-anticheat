@@ -17,5 +17,9 @@ uint64_t uleb128_from_istream(std::istream& stream)
 		shift += 7;
 	}
 
+	/*if (shift < (sizeof(result)) && (byte & 0x40) != 0)
+		result |= -((static_cast<uint64_t>(1)) << shift);
+		*/
+
 	return result;
 }

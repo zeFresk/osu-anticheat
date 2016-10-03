@@ -38,7 +38,6 @@ SCENARIO("OSRE can read custom types used in replay files", "[types]")
 		std::vector<char> raw = { 0x07, 0x7A, 0x65, 0x46, 0x72, 0x65, 0x73, 0x6B };
 		std::string str{ std::begin(raw), std::end(raw) };
 		std::stringstream sstream{ str };
-		raw.clear();
 		REQUIRE(sstream.str() == "\azeFresk");
 		THEN("ULEB128 is successfully read.")
 		{
@@ -48,6 +47,7 @@ SCENARIO("OSRE can read custom types used in replay files", "[types]")
 	GIVEN("some osu String")
 	{
 		unsigned char str[] = { 0x0B,0x07,0x7A,0x65,0x46,0x72,0x65,0x73,0x6B };
+		std::vector<char> raw = { 0x0B, 0x07, 0x7A, 0x65, 0x46, 0x72, 0x65, 0x73, 0x6B };
 
 		WHEN("converted to std::string")
 		{
@@ -55,6 +55,17 @@ SCENARIO("OSRE can read custom types used in replay files", "[types]")
 			THEN("strings are successfully converted")
 			{
 				REQUIRE(str_c == "zeFresk");
+			}
+		}
+		WHEN("converted to std::string from stream")
+		{
+			std::string str{ std::begin(raw), std::end(raw) };
+			std::stringstream sstream{ str };
+			THEN("string is succesffully retrieved")
+			{
+				std::string result;
+				orde::unserialize(sstream, result);
+				REQUIRE(result == "zeFresk");
 			}
 		}
 	}
@@ -80,7 +91,7 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 			THEN("beatmap hash is correctly read")
 			{
-				REQUIRE(file.beatmap_hash != ""); //TODO
+				REQUIRE(file.beatmap_hash != "d7049ea6c1ee975e897bf3bb50dec777");
 			}
 			THEN("player name is correctly read")
 			{
@@ -88,7 +99,7 @@ SCENARIO("OSRE read and extract data correctly from replay files", "[extraction]
 			}
 			THEN("replay hash is correctly read")
 			{
-				REQUIRE(file.replay_hash != ""); //TODO
+				REQUIRE(file.replay_hash != "d9b5928b4550670464a05d10bf7b3603");
 			}
 			THEN("number of 300s is correctly read")
 			{

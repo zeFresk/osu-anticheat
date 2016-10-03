@@ -70,16 +70,18 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-replay---Data-Extractor\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <IncludePath>D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include;D:\Leo\Mes documents\Programmation\Gros projets\osu-anticheat\LZMA\include\SDK\C;$(IncludePath)</IncludePath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

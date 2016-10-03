@@ -38,3 +38,6 @@
 *.user
 /*/Debug
 /*/Release
+/Debug
+/Release
+*.osz

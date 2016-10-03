@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cassert>
 #include <vector>
+#include <iterator>
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/lexical_cast.hpp>
@@ -27,10 +28,11 @@ namespace orde {
 
 		if (present == 0x0b)
 		{
-			auto size = uleb128_from_istream(stream) + 1;
+			auto size = uleb128_from_istream(stream); //'\0'
 
-			str.resize(static_cast<std::size_t>(size));
-			stream.get(const_cast<char*>(str.c_str()), size); //horrible
+			str.reserve(static_cast<std::size_t>(size));
+			std::copy_n(std::istreambuf_iterator<char>(stream), size, std::back_inserter(str));
+			stream.ignore(1); //???
 		}
 		else
 		{
@@ -50,10 +52,10 @@ namespace orde {
 		lzma_decompress(outBuf, inBuf);
 
 		std::string uncompressed_string(outBuf.begin(), outBuf.end()); //Peppy why u do dis ? Why a string ???
+		uncompressed_string.resize(uncompressed_string.size() - 1); //"the last one is a ','
 
 		std::vector<std::string> results;
 		boost::split(results, uncompressed_string, [](char car) {return car == ','; });
-		results.resize(results.size() - 1); //don't ask me why, the last one is empty
 		actions.reserve(results.size());
 
 		for (auto& a : results)
@@ -62,11 +64,6 @@ namespace orde {
 			boost::split(wxyz, a, [](char car) {return car == '|'; });
 			actions.push_back({ boost::lexical_cast<Action::w_t>(std::move(wxyz[0])), boost::lexical_cast<Action::x_t>(std::move(wxyz[1])), boost::lexical_cast<Action::y_t>(std::move(wxyz[2])), boost::lexical_cast<Action::z_t>(std::move(wxyz[3])) });
 		}
-	}
-
-	template<>
-	void unserialize(std::istream & stream, Action & act)
-	{
 	}
 
 	template <>
@@ -80,7 +77,6 @@ namespace orde {
 
 		std::vector<std::string> results;
 		boost::split(results, graph_str, [](char car) {return car == ','; });
-		results.resize(results.size() - 1); //don't ask me why, the last one is empty
 		graph.reserve(results.size());
 
 		for (auto& a : results)
