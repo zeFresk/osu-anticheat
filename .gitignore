@@ -41,3 +41,8 @@
 /Debug
 /Release
 *.osz
+/Bin
+/Bin/*
+/Obj
+/Obj/*
+/Unitary tests/Tests files/*
